@@ -4,7 +4,9 @@
 {%block conteudo%}  
     <h1 class="mt-5">Minha agenda</h1>
     <form action="{% url 'adicionar' %}">
-        <button type="submit">Adicionar</button>
+        <button type="submit">
+            <img src="/contatos/templates/img/adicionar-ficheiro.png">
+        </button>
     <table class="table"></form>
     
     <thead>
@@ -27,23 +29,27 @@
                     </td>
                     <td>{{contato.sobrenome}}</td>
                     <td>{{contato.telefone}}</td>
-                    <td>{{contato.categoria}} 
-                        <form action="{% url 'editar' contato.id %}" style="margin-left: 10px;">
-                             <button>
-                            Editar
+                    <td>{{contato.categoria}} </td>
+                    <td>
+                    <div class = "new-bt">
+                            
+                        <form class="bt-editar" action="{% url 'editar' contato.id %}">
+                            <button type="submit">
+                              <img src="/contatos/templates/img/editar.png" >
                             </button>
-                        </form>
+                          </form>
+                          
                        
                         
-                        <!-- <form action="{% url 'excluir' contato.id %}" style="margin-left: 10px;"> <button>
-                            Excluir
+                        <form class="bt-excluir" action="{% url 'excluir' contato.id %}" method="POST">
+                            {% csrf_token %}
+                            <button type="submit" onclick="return confirm('Tem certeza que deseja excluir')">
+                              <img src="/contatos/templates/img/remover.png" >
                             </button>
-                        </form> -->
-                        <a href="{% url 'excluir' contato.id %}"
-                        onclick="return confirm('Tem certeza que deseja excluir')
-                        ">Excluir</a>
-                       
-                </td>
+                          </form>
+                    </div>
+                       </td>
+                
 
                 </tr>
             {%endif%}

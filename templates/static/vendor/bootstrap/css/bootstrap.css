@@ -153,7 +153,8 @@ sup {
 }
 
 a {
-  color: #007bff;
+  color: black;
+
   text-decoration: none;
   background-color: transparent;
 }
@@ -259,11 +260,15 @@ select {
 select {
   word-wrap: normal;
 }
-
+.bt-editar,.bt-excluir {
+  display: inline-block;
+  margin-right: 10px;
+}
 button,
 [type="button"],
 [type="reset"],
 [type="submit"] {
+  appearance: auto;
   -webkit-appearance: button;
 }
 
@@ -292,6 +297,7 @@ input[type="date"],
 input[type="time"],
 input[type="datetime-local"],
 input[type="month"] {
+  appearance: auto;
   -webkit-appearance: listbox;
 }
 
@@ -330,6 +336,7 @@ progress {
 
 [type="search"] {
   outline-offset: -2px;
+  appearance: auto;
   -webkit-appearance: none;
 }
 
